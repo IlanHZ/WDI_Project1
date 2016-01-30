@@ -1,5 +1,45 @@
-.player1 li{
+body {
+  background: url('../machine_background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+h1 {
+  font-family: 'Alex Brush', cursive;
+  color:rgb(212,175,55);
+  text-align: center;
+  font-size: 50px;
+  margin-top: 0;
+  margin-left: 150px;
+}
+.score {
+  margin-left: 900px;
+}
+ul {
+  margin-left: 120px;
+  margin-top: 100px;
+}
+button  {
+  margin-left: 100px;
+}
+li{
+
+  width:80px;
+  background-color:transparent;
+  border: 1px transparent ;
+  color:rgb(212,175,55);
+  font-size:24px;
+  text-align:center;
+  list-style-type: none;
+  display: inline-block;
+}
+
+
+
+
+
+
+#round {
   width:30px;
   background:white;
   border: 1px solid black ;
@@ -7,17 +47,14 @@
   text-align:center;
   list-style-type: none;
   display: inline-block;
+  float: right;
 }
 
-.player2 li{
-  width:30px;
-  background:white;
-  border: 1px solid black ;
-  font-size:24px;
-  text-align:center;
-  list-style-type: none;
-  display: inline-block;
-
+.buttonClassA {
+  background: rgba(0,0,0,0.5);
+}
+.buttonClassB{
+  background:grey;
 }
 
-/* find a way to create real dices */
+

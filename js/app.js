@@ -11,6 +11,7 @@ var four        = '1,4';
 var five        = '5';
 
 var scoreObj = {
+  '1,1,1,1,1':0,
   '1,1,1,2': 1,
   '1,2,2': 2,
   '1,1,3':3,
@@ -23,6 +24,12 @@ var scoreObj = {
 
 var score1;
 var score2;
+var round = 0;
+var $player1= $(".player1");
+var player1Hold=$("player1Hold");
+
+
+//function isHoldOn(){
 
 
 
@@ -61,19 +68,68 @@ var score2;
     return array.reduce(function(prev,val) {
       return prev + val;
     },0);
+    
   }
-  
 
-  
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
+//hold the button if it is clicked, switch from classA to
+$('#hold1').on("click", function() {
+  var btn=$(this);
+  if(btn.attr('class')=='buttonClassA'){     
+       btn.removeClass('buttonClassA').addClass('buttonClassB');
+  }
+  else{
+      btn.removeClass('buttonClassB').addClass('buttonClassA');
+  }
+})
+$('#hold2').on("click", function() {
+  var btn=$(this);
+  if(btn.attr('class')=='buttonClassA'){    
+       btn.removeClass('buttonClassA').addClass('buttonClassB');
+  }
+  else{
+      btn.removeClass('buttonClassB').addClass('buttonClassA');
+  }
+})
+$('#hold3').on("click", function() {
+  var btn=$(this);
+  if(btn.attr('class')=='buttonClassA'){     
+       btn.removeClass('buttonClassA').addClass('buttonClassB');
+  }
+  else{
+      btn.removeClass('buttonClassB').addClass('buttonClassA');
+  }
+})
+$('#hold4').on("click", function() {
+  var btn=$(this);
+  if(btn.attr('class')=='buttonClassA'){    
+       btn.removeClass('buttonClassA').addClass('buttonClassB');
+  }
+  else{
+      btn.removeClass('buttonClassB').addClass('buttonClassA');
+  }
+})
+$('#hold5').on("click", function() {
+  var btn=$(this);
+  if(btn.attr('class')=='buttonClassA'){     
+       btn.removeClass('buttonClassA').addClass('buttonClassB');
+  }
+  else{
+      btn.removeClass('buttonClassB').addClass('buttonClassA');
+  }
+})
+
 //When the button is clicked, call the rollDice1 function
+
+
   $('#roll1').on("click", function() {
 
     var player1Array = rollDice(1);
-    //console.log(sumElement(player1Array));
+          console.log(sumElement(player1Array));
     var occurenceArray = [];
     // 
     [1,2,3,4,5,6].forEach(function(val) {
@@ -91,11 +147,20 @@ var score2;
     //console.log(strOccurence);
     //console.log(strOccurence);
     score1 = scoreObj[strOccurence];
-    console.log(" player1 score is " + score1)
+    //console.log(" player1 score is " + score1)
+var hand = if(score1=0) {
+  return "Nothing!";
+} else if (score1=1) {
+  return "One Pair";
+}
+}
+    //Show the hand of the player on the screen
+    var $hand1 = document.getElementById("score1");
+    //console.log($hand1)
+    $hand1.innerHTML = hand;
+    console.log(score1)
    
   });
-
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -125,27 +190,27 @@ var score2;
     score2 = scoreObj[strOccurence];
     console.log(" player2 score is " + score2)
 
-    function getWinner(score1, score2) {
-      if ("score1" > "score2" ) {
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+    function getWinner() {
+      if (score1 > score2) {
         console.log(" player1 wins!")
-      }  else if ("score1" < "score2") {
+      }  else if (score1 < score2 ) {
         console.log(" player2 wins!")
-      }  else if ("score1" = "score2"){
+      }  else  {
         console.log("It's a tie!")
       }
 
     }
+  //
       $('#winner').on("click", function() {
 
-      getWinner(score2, score1)
+      getWinner();
 
     });
    
   });
-
-
-
-
 
 
 
