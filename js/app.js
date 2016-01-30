@@ -148,16 +148,11 @@ $('#hold5').on("click", function() {
     //console.log(strOccurence);
     score1 = scoreObj[strOccurence];
     //console.log(" player1 score is " + score1)
-var hand = if(score1=0) {
-  return "Nothing!";
-} else if (score1=1) {
-  return "One Pair";
-}
-}
-    //Show the hand of the player on the screen
+
+    //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("score1");
     //console.log($hand1)
-    $hand1.innerHTML = hand;
+    $hand1.innerHTML = score1;
     console.log(score1)
    
   });
@@ -189,6 +184,11 @@ var hand = if(score1=0) {
     //console.log(strOccurence);
     score2 = scoreObj[strOccurence];
     console.log(" player2 score is " + score2)
+    //Show the hand of the player 1 on the screen
+    var $hand1 = document.getElementById("score2");
+    //console.log($hand1)
+    $hand1.innerHTML = score2;
+    console.log(score2)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -207,6 +207,11 @@ var hand = if(score1=0) {
       $('#winner').on("click", function() {
 
       getWinner();
+      //Show the hand of the player 1 on the screen
+      var $winner = document.getElementById("getWinner");
+      //console.log($hand1)
+      $winner.innerHTML = score1;
+      console.log(score1)
 
     });
    
