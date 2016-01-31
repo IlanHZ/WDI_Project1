@@ -1,65 +1,88 @@
 $(function() {
 
+  // list of each possible hand with corresponding array (with strings inside to compare them!)
+  var onePair     = '1,1,1,2';    
+  var twoPair     = '1,2,2';  
+  var three       = '1,1,3';
+  var fullHouse   = '2,3';
+  var four        = '1,4';
+  var five        = '5';
 
-// list of each possible hand with corresponding array (with strings inside to compare them!)
-var onePair     = '1,1,1,2';    
-var twoPair     = '1,2,2';  
-var three       = '1,1,3';
-var fullHouse   = '2,3';
-var four        = '1,4';
-var five        = '5';
+  var scoreObj = {
+    '1,1,1,1,1':0,
+    '1,1,1,2': 1,
+    '1,2,2': 2,
+    '1,1,3':3,
+    //'smallStraight':4,
+    //'bigStraight': 5,
+    '2,3': 6,
+    '1,4': 7,
+    '5': 8,
+  };
 
-var scoreObj = {
-  '1,1,1,1,1':0,
-  '1,1,1,2': 1,
-  '1,2,2': 2,
-  '1,1,3':3,
-  //'smallStraight':4,
-  //'bigStraight': 5,
-  '2,3': 6,
-  '1,4': 7,
-  '5': 8,
-};
-
-var score1;
-var score2;
-var round = 0;
+  var score1;
+  var score2;
+  //round number (increase i++ each time the player2 has played.)
+  var $round = 0;
 
 
 
-//Create a function to roll all the dice of player 1
+
+
+  //Create a function to roll all the dice of player 1
   function rollDice(player){
-// Get the element in the DOM
-    var $die1 = document.getElementById("die" + player + "1");
-    var $die2 = document.getElementById("die" + player + "2");
-    var $die3 = document.getElementById("die" + player + "3");
-    var $die4 = document.getElementById("die" + player + "4");
-    var $die5 = document.getElementById("die" + player + "5");
-// Set variable of the random result of each dice.
+  // Get the element in the DOM
+    var $dice = $(".player" + player + " .die");
+    var resultArr = [];
 
-    var d1 = Math.floor(Math.random() * 6) + 1;
-    var d2 = Math.floor(Math.random() * 6) + 1;   
-    var d3 = Math.floor(Math.random() * 6) + 1;   
-    var d4 = Math.floor(Math.random() * 6) + 1;   
-    var d5 = Math.floor(Math.random() * 6) + 1;  
+    $.each($dice, function(index, die) {
+      if(!$(die).hasClass('held')) {
+        $(die).text(Math.floor(Math.random() * 6) + 1);
+      }
+      resultArr.push(Number($(die).text()));
+      console.log($(die).text());
+
+// Set as a background image each dice 
+      $(die).css("background-image", "url(images/dice-" + $(die).text() + "-md.png)");
+    });
+
+// if the value is a certain number give it a certain background image
+
+  
+
+
+
+      // var $die1 = document.getElementById("die" + player + "1");
+      // var $die2 = document.getElementById("die" + player + "2");
+      // var $die3 = document.getElementById("die" + player + "3");
+      // var $die4 = document.getElementById("die" + player + "4");
+      // var $die5 = document.getElementById("die" + player + "5");
+  // Set variable of the random result of each dice.
+
+      // var d1 = Math.floor(Math.random() * 6) + 1;
+      // var d2 = Math.floor(Math.random() * 6) + 1;   
+      // var d3 = Math.floor(Math.random() * 6) + 1;   
+      // var d4 = Math.floor(Math.random() * 6) + 1;   
+      // var d5 = Math.floor(Math.random() * 6) + 1;  
+
+  // Change the value of each dice in HTML with the random result of each dice.
+     
+        // $die1.innerHTML = d1;
+        // $die2.innerHTML = d2;
+        // $die3.innerHTML = d3;
+        // $die4.innerHTML = d4;
+        // $die5.innerHTML = d5;
     
-// Change the value of each dice in HTML with the random result of each dice.
-if($('li').not('.held')){
-    $die1.innerHTML = d1;
-    $die2.innerHTML = d2;
-    $die3.innerHTML = d3;
-    $die4.innerHTML = d4;
-    $die5.innerHTML = d5;
-    return [d1, d2, d3, d4, d5];
+
+    return resultArr;
   }
-}
-// function that counts the occurence of each number of the array
+  // function that counts the occurence of each number of the array
   function countElement(item, array) {
     return array.reduce(function(prev,val) { 
       return (val === item) ? prev + 1 : prev;
     },0);
   }
-// function that sums all the dice, if sum = 15, you have a small straight, if 20 a big straight. 
+  // function that sums all the dice, if sum = 15, you have a small straight, if 20 a big straight. 
   function sumElement(array) {
     return array.reduce(function(prev,val) {
       return prev + val;
@@ -68,18 +91,20 @@ if($('li').not('.held')){
 
 
 
-///////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
 
-$('li').on('click', function(){
-  $(this).addClass('held');
-});
+  //Change the class of the <li> to "held" when it is clicked
+  $('li').on('click', function(){
+    $(this).addClass('held');
+  });
 
-//When the button is clicked, call the rollDice1 function
 
+    //When the button is clicked, call the rollDice1 function
   $('#roll1').on("click", function() {
     var player1Array = rollDice(1);
+
           console.log(sumElement(player1Array));
     var occurenceArray = [];
     // 
@@ -97,9 +122,9 @@ $('li').on('click', function(){
     var strOccurence = occurenceArray.toString();
     //console.log(strOccurence);
     //console.log(strOccurence);
-    if(sumElement(player1Array) === '15') {
+    if(sumElement(player1Array) === 15) {
       score1 = '4';
-    } else if(sumElement(player1Array) === '20'){
+    } else if(sumElement(player1Array) === 20){
       score1 = '5';
     }
     else score1 = scoreObj[strOccurence];
@@ -109,7 +134,7 @@ $('li').on('click', function(){
     var $hand1 = document.getElementById("score1");
     $hand1.innerHTML = score1;
     //console.log($hand1)
-  
+
     //if (score1 === '0') {
     //  var score1 =$hand1.innerHTML ("Nothing!");
     //}
@@ -125,13 +150,13 @@ $('li').on('click', function(){
     //else if (score1 === "4"){
     //  $hand1.innerHTML ("One pair");
     //}
- 
+
   });
 
 
-///////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////// PLAYER 2 //////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////// PLAYER 2 //////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
 
   $('#roll2').on("click", function() {
 
@@ -153,10 +178,10 @@ $('li').on('click', function(){
     var strOccurence = occurenceArray.toString();
     //console.log(strOccurence);
     //console.log(strOccurence);
-    if(sumElement(player2Array) === '15') {
-      score2 = '4';
-    } else if(sumElement(player2Array) === '20'){
-      score2 = '5';
+    if(sumElement(player2Array) === 15) {
+      score2 = 4;
+    } else if(sumElement(player2Array) === 20){
+      score2 = 5;
     }
     else score2 = scoreObj[strOccurence];
     //console.log(" player2 score is " + score2)
@@ -166,10 +191,15 @@ $('li').on('click', function(){
     $hand1.innerHTML = score2;
     //console.log(score2)
 
-///////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
+// Increase the number of "round" each time the player2 has roll the dice.
+    $round++;
+    console.log($round)
+
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////
 
     function getWinner() {
+
       if (score1 > score2) {
         return " player1 wins!"
       }  else if (score1 < score2 ) {
@@ -179,8 +209,9 @@ $('li').on('click', function(){
       }
 
     }
+
   //
-      $('#winner').on("click", function() {
+    $('#winner').on("click", function() {
 
       getWinner();
       console.log(getWinner())
