@@ -43,6 +43,8 @@ var player1Hold=$("player1Hold");
     var $die4 = document.getElementById("die" + player + "4");
     var $die5 = document.getElementById("die" + player + "5");
 // Set variable of the random result of each dice.
+
+
     var d1 = Math.floor(Math.random() * 6) + 1;
     var d2 = Math.floor(Math.random() * 6) + 1;   
     var d3 = Math.floor(Math.random() * 6) + 1;   
@@ -72,56 +74,14 @@ var player1Hold=$("player1Hold");
   }
 
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
-
-//hold the button if it is clicked, switch from classA to
-$('#hold1').on("click", function() {
-  var btn=$(this);
-  if(btn.attr('class')=='buttonClassA'){     
-       btn.removeClass('buttonClassA').addClass('buttonClassB');
-  }
-  else{
-      btn.removeClass('buttonClassB').addClass('buttonClassA');
-  }
-})
-$('#hold2').on("click", function() {
-  var btn=$(this);
-  if(btn.attr('class')=='buttonClassA'){    
-       btn.removeClass('buttonClassA').addClass('buttonClassB');
-  }
-  else{
-      btn.removeClass('buttonClassB').addClass('buttonClassA');
-  }
-})
-$('#hold3').on("click", function() {
-  var btn=$(this);
-  if(btn.attr('class')=='buttonClassA'){     
-       btn.removeClass('buttonClassA').addClass('buttonClassB');
-  }
-  else{
-      btn.removeClass('buttonClassB').addClass('buttonClassA');
-  }
-})
-$('#hold4').on("click", function() {
-  var btn=$(this);
-  if(btn.attr('class')=='buttonClassA'){    
-       btn.removeClass('buttonClassA').addClass('buttonClassB');
-  }
-  else{
-      btn.removeClass('buttonClassB').addClass('buttonClassA');
-  }
-})
-$('#hold5').on("click", function() {
-  var btn=$(this);
-  if(btn.attr('class')=='buttonClassA'){     
-       btn.removeClass('buttonClassA').addClass('buttonClassB');
-  }
-  else{
-      btn.removeClass('buttonClassB').addClass('buttonClassA');
-  }
-})
+//$('button').on('click', function(){
+//  $(this).parent().addClass('held')
+//}
 
 //When the button is clicked, call the rollDice1 function
 
@@ -151,10 +111,26 @@ $('#hold5').on("click", function() {
 
     //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("score1");
-    //console.log($hand1)
     $hand1.innerHTML = score1;
-    console.log(score1)
-   
+    //console.log($hand1)
+  
+    //if (score1 === '0') {
+    //  var score1 =$hand1.innerHTML ("Nothing!");
+    //}
+    //else if (score1 === "1"){
+    //  $hand1.innerHTML ("One pair");
+    //}
+    //else if (score1 === "2"){
+    //  $hand1.innerHTML ("Two pair");
+    //}
+    //else if (score1 === "3"){
+    //  $hand1.innerHTML ("Three of a kind");
+    //}
+    //else if (score1 === "4"){
+    //  $hand1.innerHTML ("One pair");
+    //}
+
+    
   });
 
 
@@ -195,12 +171,14 @@ $('#hold5').on("click", function() {
 
     function getWinner() {
       if (score1 > score2) {
-        console.log(" player1 wins!")
+        " player1 wins!"
       }  else if (score1 < score2 ) {
-        console.log(" player2 wins!")
+        " player2 wins!"
       }  else  {
-        console.log("It's a tie!")
+        "It's a tie!"
       }
+   
+      console.log(getWinner())
 
     }
   //

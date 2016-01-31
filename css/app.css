@@ -12,7 +12,7 @@ button.roll{
   color: rgb(212,175,55);
   font-size: 30px;
   font-family: 'Alex Brush', cursive;
-  border:1px ;
+  border:1px rgb(212,175,55);
 }
 
 
@@ -62,10 +62,10 @@ li{
   float: right;
 }
 
-.buttonClassA {
+.unClicked {
   background: rgba(0,0,0,0.5);
 }
-.buttonClassB{
+.held{
   background:grey;
 }
 
