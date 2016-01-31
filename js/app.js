@@ -171,24 +171,23 @@ var player1Hold=$("player1Hold");
 
     function getWinner() {
       if (score1 > score2) {
-        " player1 wins!"
+        return " player1 wins!"
       }  else if (score1 < score2 ) {
-        " player2 wins!"
+        return " player2 wins!"
       }  else  {
-        "It's a tie!"
+        return "It's a tie!"
       }
-   
-      console.log(getWinner())
 
     }
   //
       $('#winner').on("click", function() {
 
       getWinner();
+      console.log(getWinner())
       //Show the hand of the player 1 on the screen
       var $winner = document.getElementById("getWinner");
       //console.log($hand1)
-      $winner.innerHTML = score1;
+      $winner.innerHTML = getWinner();
       console.log(score1)
 
     });
