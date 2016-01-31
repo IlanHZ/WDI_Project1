@@ -5,7 +5,6 @@ $(function() {
 var onePair     = '1,1,1,2';    
 var twoPair     = '1,2,2';  
 var three       = '1,1,3';
-var straight    = 0;
 var fullHouse   = '2,3';
 var four        = '1,4';
 var five        = '5';
@@ -15,8 +14,8 @@ var scoreObj = {
   '1,1,1,2': 1,
   '1,2,2': 2,
   '1,1,3':3,
-  'smallStraight':4,
-  'bigStraight': 5,
+  //'smallStraight':4,
+  //'bigStraight': 5,
   '2,3': 6,
   '1,4': 7,
   '5': 8,
@@ -25,12 +24,6 @@ var scoreObj = {
 var score1;
 var score2;
 var round = 0;
-var $player1= $(".player1");
-var player1Hold=$("player1Hold");
-
-
-//function isHoldOn(){
-
 
 
 
@@ -44,13 +37,14 @@ var player1Hold=$("player1Hold");
     var $die5 = document.getElementById("die" + player + "5");
 // Set variable of the random result of each dice.
 
-
     var d1 = Math.floor(Math.random() * 6) + 1;
     var d2 = Math.floor(Math.random() * 6) + 1;   
     var d3 = Math.floor(Math.random() * 6) + 1;   
     var d4 = Math.floor(Math.random() * 6) + 1;   
-    var d5 = Math.floor(Math.random() * 6) + 1;   
+    var d5 = Math.floor(Math.random() * 6) + 1;  
+    
 // Change the value of each dice in HTML with the random result of each dice.
+if($('li').not('.held')){
     $die1.innerHTML = d1;
     $die2.innerHTML = d2;
     $die3.innerHTML = d3;
@@ -58,36 +52,33 @@ var player1Hold=$("player1Hold");
     $die5.innerHTML = d5;
     return [d1, d2, d3, d4, d5];
   }
+}
 // function that counts the occurence of each number of the array
   function countElement(item, array) {
     return array.reduce(function(prev,val) { 
       return (val === item) ? prev + 1 : prev;
     },0);
   }
-
-
+// function that sums all the dice, if sum = 15, you have a small straight, if 20 a big straight. 
   function sumElement(array) {
     return array.reduce(function(prev,val) {
       return prev + val;
     },0);
-    
   }
-
 
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
-//$('button').on('click', function(){
-//  $(this).parent().addClass('held')
-//}
+
+$('li').on('click', function(){
+  $(this).addClass('held');
+});
 
 //When the button is clicked, call the rollDice1 function
 
-
   $('#roll1').on("click", function() {
-
     var player1Array = rollDice(1);
           console.log(sumElement(player1Array));
     var occurenceArray = [];
@@ -106,7 +97,12 @@ var player1Hold=$("player1Hold");
     var strOccurence = occurenceArray.toString();
     //console.log(strOccurence);
     //console.log(strOccurence);
-    score1 = scoreObj[strOccurence];
+    if(sumElement(player1Array) === '15') {
+      score1 = '4';
+    } else if(sumElement(player1Array) === '20'){
+      score1 = '5';
+    }
+    else score1 = scoreObj[strOccurence];
     //console.log(" player1 score is " + score1)
 
     //Show the hand of the player 1 on the screen
@@ -129,8 +125,7 @@ var player1Hold=$("player1Hold");
     //else if (score1 === "4"){
     //  $hand1.innerHTML ("One pair");
     //}
-
-    
+ 
   });
 
 
@@ -141,7 +136,7 @@ var player1Hold=$("player1Hold");
   $('#roll2').on("click", function() {
 
     var player2Array = rollDice(2);
-    //console.log(sumElement(player2Array));
+    console.log(sumElement(player2Array));
     var occurenceArray = [];
     // 
     [1,2,3,4,5,6].forEach(function(val) {
@@ -158,13 +153,18 @@ var player1Hold=$("player1Hold");
     var strOccurence = occurenceArray.toString();
     //console.log(strOccurence);
     //console.log(strOccurence);
-    score2 = scoreObj[strOccurence];
-    console.log(" player2 score is " + score2)
+    if(sumElement(player2Array) === '15') {
+      score2 = '4';
+    } else if(sumElement(player2Array) === '20'){
+      score2 = '5';
+    }
+    else score2 = scoreObj[strOccurence];
+    //console.log(" player2 score is " + score2)
     //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("score2");
     //console.log($hand1)
     $hand1.innerHTML = score2;
-    console.log(score2)
+    //console.log(score2)
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
