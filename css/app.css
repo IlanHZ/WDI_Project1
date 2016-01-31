@@ -1,15 +1,15 @@
 body {
-  background: url('../machine_background.jpg');
+  
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.
 button.roll{
   text-align: center;
   margin-left: 600px;
   background:url("../roll_button.png");
   border-radius: 100px;
-  color: rgb(212,175,55);
+  color: rgba();(212,175,55);
   font-size: 30px;
   font-family: 'Alex Brush', cursive;
   border:1px rgb(212,175,55);
@@ -32,9 +32,13 @@ ul {
 button  {
   margin-left: 100px;
 }
-li{
 
-  width:80px;
+.die{
+  text-indent: 100%;
+ 
+  background-size: cover;
+  width: 100px;
+  height: 100px;
   background-color:transparent;
   border: 1px transparent ;
   color:rgb(212,175,55);
@@ -65,6 +69,7 @@ li{
 }
 .held{
   background:grey;
+  background-size: cover;
 }
 
 
