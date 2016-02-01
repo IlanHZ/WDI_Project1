@@ -8,7 +8,6 @@ button.roll{
   text-align: center;
   margin-left: 600px;
   border-radius: 100px;
-  color: rgba();(212,175,55);
   font-size: 30px;
   font-family: 'Alex Brush', cursive;
   border:1px rgb(212,175,55);
@@ -34,6 +33,7 @@ button  {
 
 .die{
 /*  text-indent: 100%;*/
+
   background-size: cover;
   width: 100px;
   height: 100px;

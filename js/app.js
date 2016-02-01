@@ -120,34 +120,52 @@ $(function() {
     //console.log(strOccurence);
     //console.log(strOccurence);
     if(sumElement(player1Array) === 15) {
-      score1 = '4';
+      score1 = 4;
     } else if(sumElement(player1Array) === 20){
-      score1 = '5';
+      score1 = 5;
     }
     else score1 = scoreObj[strOccurence];
     //console.log(" player1 score is " + score1)
 
     //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("score1");
+
+    if (score1 === 0) {
+      score1 = "Nothing!";
+    }
+    else if (score1 === 1){
+      score1 = "One pair";
+    }
+    else if (score1 === 2){
+      score1 = "Two pair";
+    }
+    else if (score1 === 3){
+      score1 = "Three of a kind";
+    }
+    else if (score1 === 4){
+      score1 = "Small straight";
+    }
+    else if (score1 === 5){
+      score1 = "Big straight";
+    }
+
+    else if (score1 === 6){
+      score1 = "Full House";
+    }
+    else if (score1 === 7){
+      score1 = "Four of a kind";
+    }
+    else if (score1 === 8){
+      score1 = "BOSS";
+    }
+
     $hand1.innerHTML = score1;
-    //console.log($hand1)
 
-
-    // if (score1 === '0') {
-    //   score1 = ("Nothing!");
-    // }
-    // else if (score1 === "1"){
-    //   score1 = ("One pair");
-    // }
-    // else if (score1 === "2"){
-    //  ("Two pair");
-    // }
-    // else if (score1 === "3"){
-    //  ("Three of a kind");
-    // }
-    // else if (score1 === "4"){
-    // ("One pair");
-    // }
+    $round1++;
+    console.log($round1)
+    if ($round1 === 3) {
+      $('.player1 > li').addClass('held');
+    }
 
   });
 
@@ -158,10 +176,6 @@ $('.stick1').on('click', function(){
 });
 
 // Increase the number of "round" each time the player1 has roll the dice.
-$round1++;
-if ($round1 === 3) {
-  $('.player1 > li').addClass('held');
-}
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -197,6 +211,36 @@ if ($round1 === 3) {
     //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("score2");
     //console.log($hand1)
+
+    if (score2 === 0) {
+      score2 = "Nothing!";
+    }
+    else if (score2 === 1){
+      score2 = "One pair";
+    }
+    else if (score2 === 2){
+      score2 = "Two pair";
+    }
+    else if (score2 === 3){
+      score2 = "Three of a kind";
+    }
+    else if (score2 === 4){
+      score2 = "Small straight";
+    }
+    else if (score2 === 5){
+      score2 = "Big straight";
+    }
+
+    else if (score2 === 6){
+      score2 = "Full House";
+    }
+    else if (score2 === 7){
+      score2 = "Four of a kind";
+    }
+    else if (score2 === 8){
+      score2 = "BOSS";
+    }
+
     $hand1.innerHTML = score2;
 
     //Held all the dice if the player choose to stick with the dice combination
@@ -249,6 +293,11 @@ if ($round1 === 3) {
 $('#refresh').click(function() {
     location.reload();
 });
+//Throw both set of dice, get strated button
+$('#start').click(function() {
+  $( "#roll1" ).trigger( "click");
+  $( "#roll2" ).trigger( "click");
+})
 
 
 });
