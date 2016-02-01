@@ -76,7 +76,8 @@ ul{
   color: white;
   list-style-type: none;
   width: 25%;
-  margin-top: 150px;
+  margin-top: 90px;
+  margin-left: 130px;
 
 }
 
@@ -145,7 +146,7 @@ ul{
 }
 
 .rules{
-  
+
   color:#C71313;
   background-image: url("../images/casino-dice.jpg");
   background-repeat: no-repeat;
@@ -175,16 +176,15 @@ ul{
   background:#F4F4F4;
   color:#005C11;
   text-align:center;
-  -webkit-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
-  -moz-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
-  box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
 }
 
 #text {
   background:rgba(255,255,255, 0.3);
 }
-
-
+/*#button{
+  margin-top: 10px;
+}
+*/
 
 
 
