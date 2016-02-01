@@ -22,10 +22,12 @@ $(function() {
 
   var score1;
   var score2;
+
   //round number (increase i++ each time the player2 has played.)
-  var $round = 0;
-
-
+  var $round1 = 0;
+  console.log($round1)
+  var $round2 = 0;
+  console.log($round2)
 
 
   //Create a function to roll all the dice of player 1
@@ -98,12 +100,9 @@ $(function() {
     $(this).addClass('held');
   });
 
-
     //When the button is clicked, call the rollDice1 function
   $('#roll1').on("click", function() {
     var player1Array = rollDice(1);
-
-          console.log(sumElement(player1Array));
     var occurenceArray = [];
     // 
     [1,2,3,4,5,6].forEach(function(val) {
@@ -133,23 +132,36 @@ $(function() {
     $hand1.innerHTML = score1;
     //console.log($hand1)
 
-    //if (score1 === '0') {
-    //  var score1 =$hand1.innerHTML ("Nothing!");
-    //}
-    //else if (score1 === "1"){
-    //  $hand1.innerHTML ("One pair");
-    //}
-    //else if (score1 === "2"){
-    //  $hand1.innerHTML ("Two pair");
-    //}
-    //else if (score1 === "3"){
-    //  $hand1.innerHTML ("Three of a kind");
-    //}
-    //else if (score1 === "4"){
-    //  $hand1.innerHTML ("One pair");
-    //}
+
+    // if (score1 === '0') {
+    //   score1 = ("Nothing!");
+    // }
+    // else if (score1 === "1"){
+    //   score1 = ("One pair");
+    // }
+    // else if (score1 === "2"){
+    //  ("Two pair");
+    // }
+    // else if (score1 === "3"){
+    //  ("Three of a kind");
+    // }
+    // else if (score1 === "4"){
+    // ("One pair");
+    // }
 
   });
+
+//Held all the dice if the player choose to stick with the dice combination
+$('.stick1').on('click', function(){
+  $('.player1 > li').addClass('held');
+  $('#roll1').hide();
+});
+
+// Increase the number of "round" each time the player1 has roll the dice.
+$round1++;
+if ($round1 === 3) {
+  $('.player1 > li').addClass('held');
+}
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -159,7 +171,6 @@ $(function() {
   $('#roll2').on("click", function() {
 
     var player2Array = rollDice(2);
-    console.log(sumElement(player2Array));
     var occurenceArray = [];
     // 
     [1,2,3,4,5,6].forEach(function(val) {
@@ -187,44 +198,57 @@ $(function() {
     var $hand1 = document.getElementById("score2");
     //console.log($hand1)
     $hand1.innerHTML = score2;
-    //console.log(score2)
+
+    //Held all the dice if the player choose to stick with the dice combination
+    $('.stick2').on('click', function(){
+      $('.player2 > li').addClass('held');
+      $('#roll2').hide();
+    });
+
+
 
 // Increase the number of "round" each time the player2 has roll the dice.
-    $round++;
-    console.log($round)
+    $round2++;
+    console.log($round2)
 
-  ///////////////////////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////////////////
-
-    function getWinner() {
-
-      if (score1 > score2) {
-        return " player1 wins!"
-      }  else if (score1 < score2 ) {
-        return " player2 wins!"
-      }  else  {
-        return "It's a tie!"
-      }
-
+    if ($round2 === 3) {
+      $('.player2 > li').addClass('held');
     }
-
-  //
-    $('#winner').on("click", function() {
-
-      getWinner();
-      console.log(getWinner())
-      //Show the hand of the player 1 on the screen
-      var $winner = document.getElementById("getWinner");
-      //console.log($hand1)
-      $winner.innerHTML = getWinner();
-      console.log(score1)
-
-    });
    
   });
 
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 
+  function getWinner() {
+
+    if (score1 > score2) {
+      return " player1 wins!"
+    }  else if (score1 < score2 ) {
+      return " player2 wins!"
+    }  else  {
+      return "It's a tie!"
+    }
+
+  }
+
+//
+  $('#winner').on("click", function() {
+
+    getWinner();
+
+    //Show the hand of the player 1 on the screen
+    var $winner = document.getElementById("getWinner");
+    //console.log($hand1)
+    $winner.innerHTML = getWinner();
+
+  });
+
+//Refresh page to play again
+$('#refresh').click(function() {
+    location.reload();
+});
 
 
 });

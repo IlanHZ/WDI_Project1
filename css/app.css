@@ -7,7 +7,6 @@ body {
 button.roll{
   text-align: center;
   margin-left: 600px;
-  background:url("../roll_button.png");
   border-radius: 100px;
   color: rgba();(212,175,55);
   font-size: 30px;
@@ -34,13 +33,13 @@ button  {
 }
 
 .die{
-  text-indent: 100%;
+/*  text-indent: 100%;*/
   background-size: cover;
   width: 100px;
   height: 100px;
   background-color:transparent;
   border: 1px transparent ;
-  color:rgb(212,175,55);
+  color:#F4F5F5;
   font-size:24px;
   text-align:center;
   list-style-type: none;
@@ -64,7 +63,6 @@ button  {
 
 }
 .held{
-  background:grey;
   background-size: cover;
   -webkit-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
   -moz-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
