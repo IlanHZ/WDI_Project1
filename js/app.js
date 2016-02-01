@@ -88,13 +88,17 @@ $(function() {
     
     // Sort the number in the array in the right order.
     occurenceArray.sort();
-    //console.log(occurenceArray);
+
+
     // Convert the number of the array into strings
     var strOccurence = occurenceArray.toString();
 
-    if(sumElement(player1Array) === 15) {
+    console.log(strOccurence)
+    //Small straight
+    console.log(score1)
+    if((sumElement(player1Array) === 15) && (strOccurence === '1,1,1,1,1')) {
       score1 = 4;
-    } else if(sumElement(player1Array) === 20){
+    } else if((sumElement(player1Array) === 20) && (strOccurence ==='1,1,1,1,1')){
       score1 = 5;
     }
     else score1 = scoreObj[strOccurence];
@@ -102,7 +106,6 @@ $(function() {
 
     //Show the hand of the player 1 on the screen
     var $hand1 = document.getElementById("hand1");
-
 
     if (score1 === 0) {
       $hand1 = "Nothing!";
@@ -186,8 +189,40 @@ $('.stick1').on('click', function(){
     else score2 = scoreObj[strOccurence];
     console.log(" player2 score is " + score2)
     //Show the hand of the player 1 on the screen
-    var $hand2 = document.getElementById("score2");
-    //console.log($hand1)
+   var $hand2 = document.getElementById("hand2");
+
+    if (score2 === 0) {
+      $hand2 = "Nothing!";
+    }
+    else if (score2 === 1){
+      $hand2 = "One pair";
+    }
+    else if (score2 === 2){
+      $hand2= "Two pair";
+    }
+    else if (score2 === 3){
+      $hand2 = "Three of a kind";
+    }
+    else if (score2 === 4){
+      $hand2 = "Small straight";
+    }
+    else if (score2 === 5){
+      $hand2= "Big straight";
+    }
+
+    else if (score2 === 6){
+      $hand2 = "Full House";
+    }
+    else if (score2 === 7){
+      $hand2 = "Four of a kind";
+    }
+    else if (score2 === 8){
+      $hand2 = "Five of a kind";
+    }
+   
+
+     $("#hand2").html($hand2)
+     console.log("you have "+$hand2)
 
 
 
