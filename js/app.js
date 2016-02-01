@@ -252,9 +252,9 @@ $('.stick1').on('click', function(){
   function getWinner() {
 
     if (score1 > score2) {
-      return " player 1 wins ! , player 2, press 'play again' to get your revenge!"
+      return " player 1 wins !     player 2, press 'play again' to get your revenge!"
     }  else if (score1 < score2 ) {
-      return " player 2 wins !, player 1, press 'play again' to get your revenge!"
+      return " player 2 wins !     player 1, press 'play again' to get your revenge!"
     }  else  {
       return "It's a tie!"
     }
