@@ -1,3 +1,4 @@
+
 body {
   margin-top: 60px;
   background-image: url("../images/poker-room.jpg");
@@ -6,24 +7,19 @@ body {
   text-align: center;
 }
 
-
 h1 {
   font-family: 'Alex Brush', cursive;
   text-align: center;
   font-size: 50px;
   margin-top: 0;
   color: white;
-
 }
 
 ul{
   list-style-type: none;
 }
 
-
 .die{
-/*  text-indent: 100%;*/
-
   background-size: cover;
   width: 70px;
   height: 70px;
@@ -35,7 +31,6 @@ ul{
   list-style-type: none;
   display: inline-block;
 }
-
 
 #round {  
   background:white;
@@ -67,7 +62,6 @@ ul{
   -webkit-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
   -moz-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
   box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
-
 }
 
 .scores {
@@ -78,7 +72,6 @@ ul{
   width: 25%;
   margin-top: 90px;
   margin-left: 130px;
-
 }
 
 #center{
@@ -96,9 +89,8 @@ ul{
   background:#F4F4F4;
   color:#005C11;
   text-align:center;
-
-
 }
+
 .stick1 {
   font-family: 'Pacifico', cursive;
   width:70px;
@@ -108,7 +100,6 @@ ul{
   background:#F4F4F4;
   color:#005C11;
   text-align:center;
-
 }
 
 .stick2 {
@@ -131,7 +122,6 @@ ul{
   background:#F4F4F4;
   color:#005C11;
   text-align:center;
-
 }
 
 #refresh{
@@ -146,8 +136,8 @@ ul{
 }
 
 .rules{
-
   color:#C71313;
+  font-size: 20px;
   background-image: url("../images/casino-dice.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -179,12 +169,8 @@ ul{
 }
 
 #text {
-  background:rgba(255,255,255, 0.3);
+  background:rgba(255,255,255, 0.6);
 }
-/*#button{
-  margin-top: 10px;
-}
-*/
 
 
 
