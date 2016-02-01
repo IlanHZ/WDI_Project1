@@ -28,7 +28,6 @@ $(function() {
 
 
 
-
   //Create a function to roll all the dice of player 1
   function rollDice(player){
   // Get the element in the DOM
@@ -40,7 +39,6 @@ $(function() {
         $(die).text(Math.floor(Math.random() * 6) + 1);
       }
       resultArr.push(Number($(die).text()));
-      console.log($(die).text());
 
 // Set as a background image each dice 
       $(die).css("background-image", "url(images/dice-" + $(die).text() + "-md.png)");

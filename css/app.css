@@ -35,7 +35,6 @@ button  {
 
 .die{
   text-indent: 100%;
- 
   background-size: cover;
   width: 100px;
   height: 100px;
@@ -48,13 +47,8 @@ button  {
   display: inline-block;
 }
 
-.score {
 
-}
-
-
-#round {
-  
+#round {  
   background:white;
   border: 1px solid black ;
   font-size:24px;
@@ -65,11 +59,16 @@ button  {
 }
 
 .unClicked {
-  background: rgba(0,0,0,0.5);
+  background-image: url("images/dice-6-md.png");
+  background-size: cover;
+
 }
 .held{
   background:grey;
   background-size: cover;
+  -webkit-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
+  -moz-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
+  box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
 }
 
 
