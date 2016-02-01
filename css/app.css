@@ -1,4 +1,5 @@
 body {
+  margin-top: 60px;
   background-image: url("../images/poker-table.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,6 +14,10 @@ h1 {
   margin-top: 0;
   color: white;
 
+}
+
+ul{
+  list-style-type: none;
 }
 
 
@@ -49,7 +54,7 @@ h1 {
   box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
 }
 
-#start {
+#start  {
   font-family: 'Pacifico', cursive;
   width:100px;
   height:100px;
@@ -69,19 +74,79 @@ h1 {
   float: left;
   font-family: 'Pacifico', cursive;
   color: white;
-  height: 100px;
-  width: 400px;
-  border: 1px solid black;
   list-style-type: none;
+  width: 25%;
 
 }
 .rules{
+  font-family: 'Pacifico', cursive;
   float: right;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
   color: white;
+  width: 25%;
+
+}
+
+#center{
+  display: inline-block;
+  width: 45vw;
+}
+
+.roll{
+  font-family: 'Pacifico', cursive;
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:15px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
+
+
+}
+.stick1 {
+  font-family: 'Pacifico', cursive;
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:15px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
+
+}
+
+.stick2 {
+  font-family: 'Pacifico', cursive;
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:15px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
+}
+
+#winner {
+  font-family: 'Pacifico', cursive;
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:15px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
+  margin-top: 150px;
+}
+
+#refresh{
+  font-family: 'Pacifico', cursive;
+  width:70px;
+  height:70px;
+  border-radius:50px;
+  font-size:15px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
 }
 
 
