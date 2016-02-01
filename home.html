@@ -12,8 +12,8 @@
   </head>
   <body>
   <div id="center">
-  <h1>Poker Dice</h1>
-  <button id="start">Get started!</button>
+    <button class="roll" id="roll1">Roll Dice </button>
+    <button class="stick1" id="roll1">Stick All</button>
     <ul class="player1">
        <li class="die" id="die1"></li> 
        <li class="die" id="die2"></li> 
@@ -21,8 +21,7 @@
        <li class="die" id="die4"></li> 
        <li class="die" id="die5"></li> 
     </ul> 
-    <button class="roll" id="roll1">Roll Dice </button>
-    <button class="stick1" id="roll1">Stick All</button>
+    
    
     <ul class="player2">
       <li class="die" id="die1"></li> 
@@ -37,16 +36,23 @@
    
     </div>
     <div class="scores">
+    <button id="start">Get started!</button>
+    <button id="winner">Get Winner</button>
+    <button id="refresh">Play again!</button>
     <h2>Scores</h2>
       <ul>
         <li id="hand1">Player 1, roll the dice!</li>
         <li id="getWinner">VS</li>
         <li id="hand2">Player 2, roll the dice!</li>
       </ul>
-      <button id="winner">Get Winner</button>
-      <button id="refresh">Play again!</button>
+
+
+      
     </div>
     <div class="rules">
+    <h1>Poker Dice</h1>
+    <button id="play">Play</button>
+    <div id="text">
     <h2>Rules</h2>
       <p>You can throw the dice three times. </br> Before you roll the dice, you can hold as many of them as you want to get the best score!</br></br> If you are happy with your hand before the end of the three times, just press 'stick'.</p>
       <p>The player with the best of the following hands wins:</p>
@@ -60,6 +66,7 @@
         <li>Full House</li>
         <li>Five of a kind</li>
       </ul>
+      </div>
     </div>
 
     

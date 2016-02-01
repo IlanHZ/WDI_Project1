@@ -279,7 +279,15 @@ $('#refresh').click(function() {
 $('#start').click(function() {
   $( "#roll1" ).trigger( "click");
   $( "#roll2" ).trigger( "click");
-})
+});
+
+$('#play').click(function() { 
+  
+  $(".rules").addClass("hidden")
+  console.log("clicked")
+});
+
+
 
 
 });

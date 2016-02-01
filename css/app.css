@@ -1,6 +1,6 @@
 body {
   margin-top: 60px;
-  background-image: url("../images/poker-table.jpg");
+  background-image: url("../images/poker-room.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -25,8 +25,8 @@ ul{
 /*  text-indent: 100%;*/
 
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-color:transparent;
   border: 1px transparent ;
   color:#F4F5F5;
@@ -76,19 +76,14 @@ ul{
   color: white;
   list-style-type: none;
   width: 25%;
-
-}
-.rules{
-  font-family: 'Pacifico', cursive;
-  float: right;
-  color: white;
-  width: 25%;
+  margin-top: 150px;
 
 }
 
 #center{
   display: inline-block;
   width: 45vw;
+  margin-top: 135px;
 }
 
 .roll{
@@ -135,7 +130,7 @@ ul{
   background:#F4F4F4;
   color:#005C11;
   text-align:center;
-  margin-top: 150px;
+
 }
 
 #refresh{
@@ -148,5 +143,93 @@ ul{
   color:#005C11;
   text-align:center;
 }
+
+.rules{
+  
+  color:#C71313;
+  background-image: url("../images/casino-dice.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Pacifico', cursive;
+  float: right;
+  color: black;
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+#play {
+  font-family: 'Pacifico', cursive;
+  width:100px;
+  height:100px;
+  border-radius:50px;
+  font-size:20px;
+  background:#F4F4F4;
+  color:#005C11;
+  text-align:center;
+  -webkit-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
+  -moz-box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
+  box-shadow: 10px 10px 47px 0px rgba(230,37,63,0.87);
+}
+
+#text {
+  background:rgba(255,255,255, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
