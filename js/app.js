@@ -1,12 +1,12 @@
 $(function() {
 
   // list of each possible hand with corresponding array (with strings inside to compare them!)
-  var onePair     = '1,1,1,2';    
-  var twoPair     = '1,2,2';  
-  var three       = '1,1,3';
-  var fullHouse   = '2,3';
-  var four        = '1,4';
-  var five        = '5';
+  // var onePair     = '1,1,1,2';    
+  // var twoPair     = '1,2,2';  
+  // var three       = '1,1,3';
+  // var fullHouse   = '2,3';
+  // var four        = '1,4';
+  // var five        = '5';
 
   var scoreObj = {
     '1,1,1,1,1':0,
@@ -21,6 +21,7 @@ $(function() {
   };
 
   var score1;
+  console.log(score1)
   var score2;
 
   //round number (increase i++ each time the player2 has played.)
@@ -45,33 +46,6 @@ $(function() {
 // Set as a background image each dice 
       $(die).css("background-image", "url(images/dice-" + $(die).text() + "-md.png)");
     });
-
-// if the value is a certain number give it a certain background image
-
-  
-
-
-
-      // var $die1 = document.getElementById("die" + player + "1");
-      // var $die2 = document.getElementById("die" + player + "2");
-      // var $die3 = document.getElementById("die" + player + "3");
-      // var $die4 = document.getElementById("die" + player + "4");
-      // var $die5 = document.getElementById("die" + player + "5");
-  // Set variable of the random result of each dice.
-
-      // var d1 = Math.floor(Math.random() * 6) + 1;
-      // var d2 = Math.floor(Math.random() * 6) + 1;   
-      // var d3 = Math.floor(Math.random() * 6) + 1;   
-      // var d4 = Math.floor(Math.random() * 6) + 1;   
-      // var d5 = Math.floor(Math.random() * 6) + 1;  
-
-  // Change the value of each dice in HTML with the random result of each dice.
-     
-        // $die1.innerHTML = d1;
-        // $die2.innerHTML = d2;
-        // $die3.innerHTML = d3;
-        // $die4.innerHTML = d4;
-        // $die5.innerHTML = d5;
     
 
     return resultArr;
@@ -117,50 +91,53 @@ $(function() {
     //console.log(occurenceArray);
     // Convert the number of the array into strings
     var strOccurence = occurenceArray.toString();
-    //console.log(strOccurence);
-    //console.log(strOccurence);
+
     if(sumElement(player1Array) === 15) {
       score1 = 4;
     } else if(sumElement(player1Array) === 20){
       score1 = 5;
     }
     else score1 = scoreObj[strOccurence];
-    //console.log(" player1 score is " + score1)
+    console.log(" player1 score is " + score1)
 
     //Show the hand of the player 1 on the screen
-    var $hand1 = document.getElementById("score1");
+    var $hand1 = document.getElementById("hand1");
+
 
     if (score1 === 0) {
-      score1 = "Nothing!";
+      $hand1 = "Nothing!";
     }
     else if (score1 === 1){
-      score1 = "One pair";
+      $hand1 = "One pair";
     }
     else if (score1 === 2){
-      score1 = "Two pair";
+      $hand1= "Two pair";
     }
     else if (score1 === 3){
-      score1 = "Three of a kind";
+      $hand1 = "Three of a kind";
     }
     else if (score1 === 4){
-      score1 = "Small straight";
+      $hand1 = "Small straight";
     }
     else if (score1 === 5){
-      score1 = "Big straight";
+      $hand1= "Big straight";
     }
 
     else if (score1 === 6){
-      score1 = "Full House";
+      $hand1 = "Full House";
     }
     else if (score1 === 7){
-      score1 = "Four of a kind";
+      $hand1 = "Four of a kind";
     }
     else if (score1 === 8){
-      score1 = "BOSS";
+      $hand1 = "Five of a kind";
     }
+  
 
-    $hand1.innerHTML = score1;
+     $("#hand1").html($hand1)
+     console.log("you have "+$hand1)
 
+    // Increase the number of "round" each time the player1 has roll the dice.
     $round1++;
     console.log($round1)
     if ($round1 === 3) {
@@ -175,7 +152,7 @@ $('.stick1').on('click', function(){
   $('#roll1').hide();
 });
 
-// Increase the number of "round" each time the player1 has roll the dice.
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -207,41 +184,12 @@ $('.stick1').on('click', function(){
       score2 = 5;
     }
     else score2 = scoreObj[strOccurence];
-    //console.log(" player2 score is " + score2)
+    console.log(" player2 score is " + score2)
     //Show the hand of the player 1 on the screen
-    var $hand1 = document.getElementById("score2");
+    var $hand2 = document.getElementById("score2");
     //console.log($hand1)
 
-    if (score2 === 0) {
-      score2 = "Nothing!";
-    }
-    else if (score2 === 1){
-      score2 = "One pair";
-    }
-    else if (score2 === 2){
-      score2 = "Two pair";
-    }
-    else if (score2 === 3){
-      score2 = "Three of a kind";
-    }
-    else if (score2 === 4){
-      score2 = "Small straight";
-    }
-    else if (score2 === 5){
-      score2 = "Big straight";
-    }
 
-    else if (score2 === 6){
-      score2 = "Full House";
-    }
-    else if (score2 === 7){
-      score2 = "Four of a kind";
-    }
-    else if (score2 === 8){
-      score2 = "BOSS";
-    }
-
-    $hand1.innerHTML = score2;
 
     //Held all the dice if the player choose to stick with the dice combination
     $('.stick2').on('click', function(){
@@ -275,14 +223,12 @@ $('.stick1').on('click', function(){
       return "It's a tie!"
     }
 
-  }
+  };
 
 //
   $('#winner').on("click", function() {
-
     getWinner();
 
-    //Show the hand of the player 1 on the screen
     var $winner = document.getElementById("getWinner");
     //console.log($hand1)
     $winner.innerHTML = getWinner();
