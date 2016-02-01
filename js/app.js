@@ -97,6 +97,7 @@ $(function() {
     //Small straight
     console.log(score1)
     if((sumElement(player1Array) === 15) && (strOccurence === '1,1,1,1,1')) {
+      console.log(strOccurence)
       score1 = 4;
     } else if((sumElement(player1Array) === 20) && (strOccurence ==='1,1,1,1,1')){
       score1 = 5;
@@ -181,9 +182,9 @@ $('.stick1').on('click', function(){
     var strOccurence = occurenceArray.toString();
     //console.log(strOccurence);
     //console.log(strOccurence);
-    if(sumElement(player2Array) === 15) {
+    if(sumElement(player2Array) === 15 && (strOccurence === '1,1,1,1,1')) {
       score2 = 4;
-    } else if(sumElement(player2Array) === 20){
+    } else if(sumElement(player2Array) === 20 && (strOccurence === '1,1,1,1,1')){
       score2 = 5;
     }
     else score2 = scoreObj[strOccurence];
@@ -251,9 +252,9 @@ $('.stick1').on('click', function(){
   function getWinner() {
 
     if (score1 > score2) {
-      return " player1 wins!"
+      return " player 1 wins ! , player 2, press 'play again' to get your revenge!"
     }  else if (score1 < score2 ) {
-      return " player2 wins!"
+      return " player 2 wins !, player 1, press 'play again' to get your revenge!"
     }  else  {
       return "It's a tie!"
     }
