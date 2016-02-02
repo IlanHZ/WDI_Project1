@@ -14,12 +14,13 @@ $(function() {
     '1,1,1,2': 1,
     '1,2,2': 2,
     '1,1,3':3,
-    //'smallStraight':4,
-    //'bigStraight': 5,
+    // '1,1,1,1,1' AND sum of values = 15 smallStraight':4,
+    // '1,1,1,1,1' AND sum of values = 20 bigStraight': 5,
     '2,3': 6,
     '1,4': 7,
     '5': 8,
   };
+
   //Variable for the score of each player.
   var score1;
   var score2;
@@ -59,24 +60,24 @@ $(function() {
     },0);
   }
 
-
   ///////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////// PLAYER 1 //////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////
 
-  //Change the class of the <li> to "held" when it is clicked
+  //Change the class of the <li> to "held" when they are clicked
   $('li').on('click', function(){
     $(this).addClass('held');
   });
 
-  //When the button is clicked, call the rollDice1 function
+  //When the button is clicked, call the rollDice() function
   $('#roll1').on("click", function() {
     var player1Array = rollDice(1);
     var occurenceArray = [];
-    // 
+    // For each number between 1 and 6 generated randomly before, check the occurence with the countElement() function.
     [1,2,3,4,5,6].forEach(function(val) {
       var occurence = countElement(val, player1Array);
       if(occurence) {
+        //Push the occurence of each number in the array
         occurenceArray.push(occurence);
       }
     })
@@ -87,19 +88,18 @@ $(function() {
     // Convert the number of the array into strings
     var strOccurence = occurenceArray.toString();
 
-    //to have a straight, the sum of all the numbers has to equal 15(small) 20(big) AND all the dice are different.
+    //to have a straight, the sum of all the numbers has to equal 15(small) 20(big) AND all the dice must be different.
     if((sumElement(player1Array) === 15) && (strOccurence === '1,1,1,1,1')) {
-      console.log(strOccurence)
       score1 = 4;
     } else if((sumElement(player1Array) === 20) && (strOccurence ==='1,1,1,1,1')){
       score1 = 5;
     }
-    else score1 = scoreObj[strOccurence];
-    console.log(" player1 score is " + score1)
+    else score1 = scoreObj[strOccurence]; // if it's not a straight, check the scoreObj object to get the number of point of each   combination.
 
-    //Show the hand of the player 1 on the screen
+    //Create a variable linkd to the hand1 id in HTML.
     var $hand1 = document.getElementById("hand1");
 
+    //If statement to display the hand linked to the score of each combination.
     if (score1 === 0) {
       $hand1 = "Nothing!";
     }
@@ -129,8 +129,7 @@ $(function() {
       $hand1 = "Five of a kind";
     }
   
-
-     $("#hand1").html($hand1)
+    $("#hand1").html($hand1)
 
     // Increase the number of "round" each time the player1 has roll the dice.
     $round1++;
@@ -144,6 +143,7 @@ $(function() {
 //Held all the dice if the player choose to stick with the dice combination
 $('.stick1').on('click', function(){
   $('.player1 > li').addClass('held');
+  //Hide the roll button if the player choose to stick all the dice (if stick, impossible to roll again)
   $('#roll1').hide();
 });
 
@@ -152,14 +152,16 @@ $('.stick1').on('click', function(){
   ////////////////////////////////////////// PLAYER 2 //////////////////////////////////////
   /////////////////////////////////////////////////////////////////////////////////////////
 
+  //When the button is clicked, call the rollDice() function
   $('#roll2').on("click", function() {
 
     var player2Array = rollDice(2);
     var occurenceArray = [];
-    // 
+    // For each number between 1 and 6 generated randomly before, check the occurence with the countElement() function.
     [1,2,3,4,5,6].forEach(function(val) {
       var occurence = countElement(val, player2Array);
       if(occurence) {
+        //Push the occurence of each number in the array
         occurenceArray.push(occurence);
       }
     })
@@ -176,10 +178,11 @@ $('.stick1').on('click', function(){
       score2 = 5;
     }
     else score2 = scoreObj[strOccurence];
-    console.log(" player2 score is " + score2)
-    //Show the hand of the player 2 on the screen.
+    
+   //Create a variable linkd to the hand1 id in HTML.
    var $hand2 = document.getElementById("hand2");
 
+    //If statement to display the hand linked to the score of each combination.
     if (score2 === 0) {
       $hand2 = "Nothing!";
     }
@@ -214,6 +217,7 @@ $('.stick1').on('click', function(){
     //Held all the dice if the player choose to stick with the dice combination
     $('.stick2').on('click', function(){
       $('.player2 > li').addClass('held');
+      //Hide the roll button if the player choose to stick all the dice (if stick, impossible to roll again)
       $('#roll2').hide();
     });
 
@@ -225,9 +229,9 @@ $('.stick1').on('click', function(){
     }  
   });
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
+
 //Function to evaluate which player has the best hand.
   function getWinner() {
 //check for the highest score.
@@ -247,7 +251,6 @@ $('.stick1').on('click', function(){
     //With the variable $winner, change the content of the HTML.
     var $winner = document.getElementById("getWinner");
     $winner.innerHTML = getWinner();
-
   });
 
   //Refresh page to play again
