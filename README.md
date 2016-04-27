@@ -2,6 +2,8 @@
 
 Poker Dice Game
 
+![](http://imgur.com/OPSFoyj.png)
+
 https://shielded-shelf-60574.herokuapp.com/
 
 General Assembly WDI London - Project 1
