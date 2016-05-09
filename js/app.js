@@ -223,11 +223,13 @@ $('.stick1').on('click', function(){
 
     //Increase the number of "round" each time the player2 has roll the dice.
     $round2++;
+
     //The maximum amount of round is 3. Add the held class to every dice at this point.
     if ($round2 === 3) {
       $('.player2 > li').addClass('held');
     }  
   });
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -236,9 +238,9 @@ $('.stick1').on('click', function(){
   function getWinner() {
 //check for the highest score.
     if (score1 > score2) {
-      return " player 1 wins !     player 2, press 'play again' to get your revenge!"
+      return " player 1 wins !"
     }  else if (score1 < score2 ) {
-      return " player 2 wins !     player 1, press 'play again' to get your revenge!"
+      return " player 2 wins !"
     }  else  {
       return "It's a tie!"
     }
